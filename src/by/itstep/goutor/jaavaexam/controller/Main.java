@@ -28,7 +28,7 @@ public class Main extends Object {
 //        System.out.println(station);
 
         // remove car test
-//        carDAO.remove(1);
+//        carDAO.remove(13);
 //        station = carDAO.getAll();
 //        System.out.println(station);
 

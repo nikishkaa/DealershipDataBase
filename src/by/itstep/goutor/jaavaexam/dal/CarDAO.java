@@ -7,38 +7,28 @@ import java.sql.*;
 
 import static by.itstep.goutor.jaavaexam.controller.Main.LOGGER;
 
-public class CarDAO {
+public class CarDAO extends AbstractDAO implements ICarDAO {
 
-    public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    public static final String URL = "jdbc:mysql://localhost:3306/dealer";
-    public static final String LOGIN = "root";
-    public static final String PASSWORD = "11n11n11n";
-    public static final String GET_ALL_SQL = "SELECT * FROM car  ORDER BY brand";
-    public static final String DELETE_CAR = "DELETE  FROM car WHERE idcar = ?";
+    public static final String GET_ALL_SQL = "SELECT * FROM car ORDER BY brand";
+    public static final String DELETE_CAR = "DELETE FROM car WHERE idcar = ?";
     public static final String GET_CAR_BY_ID = "SELECT * FROM car WHERE idcar = ";
     public static final String ADD_CAR = "INSERT INTO car (brand, model, price, year, country) values(?, ?, ?, ?, ?)";
     public static final String CAR_COUNTER = "SELECT COUNT(*) as count FROM car";
     public static final String CHEAPEST_CAR = "SELECT * FROM car ORDER BY price ASC LIMIT 1";
     public static final String BEST_CAR = "SELECT * FROM car ORDER BY price DESC LIMIT 1";
-    public static final String MORE_EXPENSIVE_BRAND = "    SELECT MAX(brand) as 'Total' FROM car;";
+    public static final String MORE_EXPENSIVE_BRAND = "SELECT MAX(brand) as 'Total' FROM car";
 
 
-    private Connection connection;
 
     public CarDAO() {
-        try {
-            Class.forName(DRIVER);
-            connection = DriverManager.getConnection(URL, LOGIN, PASSWORD);
-        } catch (ClassNotFoundException | SQLException exception) {
-            LOGGER.fatal(exception);
-        }
+        super();
     }
 
     public CarDAO(Connection connection) {
-        this.connection = connection;
+        super(connection);
     }
 
-
+    @Override
     public void add(Car car) {
         try {
             PreparedStatement statement = connection.prepareStatement(ADD_CAR);
@@ -51,10 +41,9 @@ public class CarDAO {
         } catch (SQLException exception) {
             LOGGER.fatal(exception);
         }
-
-
     }
 
+    @Override
     public void remove(int id) {
         try {
             PreparedStatement statement = connection.prepareStatement(DELETE_CAR);
@@ -63,14 +52,18 @@ public class CarDAO {
         } catch (SQLException exception) {
             LOGGER.fatal(exception);
         }
-
     }
 
-    public void edi(int id, Car car) {
+
+
+
+    @Override
+    public void edit(int id, Car car) {
         remove(id);
         add(car);
     }
 
+    @Override
     public Car get(int id) {
         Car car = new Car();
         try {
@@ -90,6 +83,7 @@ public class CarDAO {
         return car;
     }
 
+    @Override
     public CarStation getAll() {
         CarStation station = new CarStation();
         try {
@@ -105,7 +99,6 @@ public class CarDAO {
 
                 station.getList().add(car);
             }
-
         } catch (SQLException exception) {
             LOGGER.fatal(exception);
         }
@@ -113,16 +106,7 @@ public class CarDAO {
         return station;
     }
 
-    protected void finalize() throws Throwable {
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException exception) {
-                LOGGER.fatal(exception);
-            }
-        }
-    }
-
+    @Override
     public int getCarCountInStation() {
         int count = 0;
         try {
@@ -138,6 +122,7 @@ public class CarDAO {
         return count;
     }
 
+    @Override
     public Car getCheapestCarInStation() {
         Car car = new Car();
         try {
@@ -149,7 +134,6 @@ public class CarDAO {
                 car.setPrice(resultSet.getDouble("price"));
                 car.setYear(resultSet.getInt("year"));
                 car.setCountry(resultSet.getString("country"));
-
             }
         } catch (SQLException exception) {
             LOGGER.fatal(exception);
@@ -158,6 +142,7 @@ public class CarDAO {
         return car;
     }
 
+    @Override
     public Car getBestCarInStation() {
         Car car = new Car();
         try {
@@ -169,7 +154,6 @@ public class CarDAO {
                 car.setPrice(resultSet.getDouble("price"));
                 car.setYear(resultSet.getInt("year"));
                 car.setCountry(resultSet.getString("country"));
-
             }
         } catch (SQLException exception) {
             LOGGER.fatal(exception);
@@ -178,7 +162,7 @@ public class CarDAO {
         return car;
     }
 
-
+    @Override
     public String getMoreExpensiveBrand() {
         String expensive = "No brand";
         try {
@@ -193,5 +177,4 @@ public class CarDAO {
 
         return expensive;
     }
-
 }
