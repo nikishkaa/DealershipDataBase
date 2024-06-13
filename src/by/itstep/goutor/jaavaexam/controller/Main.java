@@ -50,7 +50,6 @@ public class Main extends Object {
         Car bestCar = carDAO.getBestCarInStation();
         String expensiveBrand = carDAO.getMoreExpensiveBrand();
 
-
         Printer.print(UserUI.getUserUI(count, cheapestCar, bestCar, expensiveBrand));
     }
 }
