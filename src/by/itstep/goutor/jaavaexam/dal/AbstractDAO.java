@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import static by.itstep.goutor.jaavaexam.controller.Main.LOGGER;
 
-public abstract class AbstractDAO implements ICarDAO{
+public abstract class AbstractDAO implements CRUD {
     public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     public static final String URL = "jdbc:mysql://localhost:3306/dealer";
     public static final String LOGIN = "root";
