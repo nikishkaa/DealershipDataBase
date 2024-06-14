@@ -7,7 +7,7 @@ import java.sql.*;
 
 import static by.itstep.goutor.jaavaexam.controller.Main.LOGGER;
 
-public class CarDAO extends AbstractDAO implements ICarDAO {
+public class CarDAO extends AbstractDAO  {
 
     public static final String GET_ALL_SQL = "SELECT * FROM car ORDER BY brand";
     public static final String DELETE_CAR = "DELETE FROM car WHERE idcar = ?";

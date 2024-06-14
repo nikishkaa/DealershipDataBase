@@ -36,8 +36,8 @@ public class Main extends Object {
 //        Car car = carDAO.get(9);
 //      Printer.print(car.toString());
 
-        // add car test
-//        Car car = new Car("777", "123", 123, 123, "dsf");
+//         add car test
+//        Car car = new Car("999", "123", 123, 123, "dsf");
 //        CarStation station = carDAO.getAll();
 //        carDAO.add(car);
 //        station = carDAO.getAll();
