@@ -23,6 +23,7 @@ public class Main extends Object {
 
         CarDAO carDAO = new CarDAO();
 
+
         // getAll test
 //        CarStation station = carDAO.getAll();
 //        System.out.println(station);
