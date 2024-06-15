@@ -2,7 +2,7 @@ package by.itstep.goutor.jaavaexam.controller;
 
 import by.itstep.goutor.jaavaexam.dal.CarDAO;
 import by.itstep.goutor.jaavaexam.model.entity.Car;
-import by.itstep.goutor.jaavaexam.model.entity.CarStation;
+import by.itstep.goutor.jaavaexam.model.entity.TransportStation;
 import by.itstep.goutor.jaavaexam.util.UserUI;
 import by.itstep.goutor.jaavaexam.view.Printer;
 import org.apache.log4j.BasicConfigurator;
@@ -24,9 +24,9 @@ public class Main extends Object {
         CarDAO carDAO = new CarDAO();
 
 
-        // getAll test
-//        CarStation station = carDAO.getAll();
-//        System.out.println(station);
+//         getAll test
+        TransportStation station = carDAO.getAll();
+        System.out.println(station);
 
         // remove car test
 //        carDAO.remove(13);
@@ -38,8 +38,8 @@ public class Main extends Object {
 //      Printer.print(car.toString());
 
 //         add car test
-//        Car car = new Car("999", "123", 123, 123, "dsf");
-//        CarStation station = carDAO.getAll();
+//        Car car = new Car("test", 123, "123", 123, "dsf");
+//        TransportStation station = carDAO.getAll();
 //        carDAO.add(car);
 //        station = carDAO.getAll();
 //        Printer.print(station.toString());

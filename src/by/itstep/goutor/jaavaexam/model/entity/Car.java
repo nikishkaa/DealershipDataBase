@@ -1,9 +1,8 @@
 package by.itstep.goutor.jaavaexam.model.entity;
 
-public class Car {
-    private String brand;
+public class Car extends Transport {
+
     private String model;
-    private double price;
     private int year;
     private String country;
 
@@ -11,21 +10,13 @@ public class Car {
     public Car() {
     }
 
-    public Car(String brand, String model, double price, int year, String country) {
-        this.brand = brand;
+    public Car(String brand, double price, String model, int year, String country) {
+        super(brand, price);
         this.model = model;
-        this.price = price;
         this.year = year;
         this.country = country;
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
 
     public String getModel() {
         return model;
@@ -35,13 +26,6 @@ public class Car {
         this.model = model;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
     public int getYear() {
         return year;
@@ -61,10 +45,8 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "brand = " + brand +
+        return "Car{" + super.toString() +
                 ", model = " + model +
-                ", price = " + price +
                 ", year = " + year +
                 ", country = " + country + '}';
     }

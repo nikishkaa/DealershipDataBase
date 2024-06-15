@@ -4,30 +4,30 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class CarStation implements Iterable {
-    private List<Car> list;
+public class TransportStation implements Iterable {
+    private List<Transport> list;
 
-    public CarStation() {
+    public TransportStation() {
         list = new ArrayList<>();
     }
 
-    public CarStation(List<Car> list) {
+    public TransportStation(List<Transport> list) {
         this.list = list;
     }
 
-    public List<Car> getList() {
+    public List<Transport> getList() {
         return list;
     }
 
-    public void setList(List<Car> list) {
+    public void setList(List<Transport> list) {
         this.list = list;
     }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder("List of car:");
-        for (Car car : list) {
-            builder.append("\n").append(car);
+        for (Transport transport : list) {
+            builder.append("\n").append(transport);
         }
 
         return builder.toString();

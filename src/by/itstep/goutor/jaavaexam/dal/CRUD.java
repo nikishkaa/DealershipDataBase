@@ -1,7 +1,7 @@
 package by.itstep.goutor.jaavaexam.dal;
 
 import by.itstep.goutor.jaavaexam.model.entity.Car;
-import by.itstep.goutor.jaavaexam.model.entity.CarStation;
+import by.itstep.goutor.jaavaexam.model.entity.TransportStation;
 
 public interface CRUD {
     void add(Car car);
@@ -12,5 +12,5 @@ public interface CRUD {
 
     Car get(int id);
 
-    CarStation getAll();
+    TransportStation getAll();
 }

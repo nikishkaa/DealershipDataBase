@@ -1,7 +1,7 @@
 package by.itstep.goutor.jaavaexam.dal;
 
 import by.itstep.goutor.jaavaexam.model.entity.Car;
-import by.itstep.goutor.jaavaexam.model.entity.CarStation;
+import by.itstep.goutor.jaavaexam.model.entity.TransportStation;
 
 import java.sql.*;
 
@@ -84,8 +84,8 @@ public class CarDAO extends AbstractDAO implements CarInterface {
     }
 
     @Override
-    public CarStation getAll() {
-        CarStation station = new CarStation();
+    public TransportStation getAll() {
+        TransportStation station = new TransportStation();
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(GET_ALL_SQL);
