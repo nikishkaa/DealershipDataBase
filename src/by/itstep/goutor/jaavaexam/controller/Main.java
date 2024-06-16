@@ -20,7 +20,6 @@ public class Main extends Object {
         BasicConfigurator.configure();
         LOGGER.setLevel(Level.ALL);
 
-
         CarDAO carDAO = new CarDAO();
 
 
