@@ -14,6 +14,7 @@ public abstract class AbstractDAO implements CRUD {
 
     protected Connection connection;
 
+
     public AbstractDAO() {
         try {
             Class.forName(DRIVER);
