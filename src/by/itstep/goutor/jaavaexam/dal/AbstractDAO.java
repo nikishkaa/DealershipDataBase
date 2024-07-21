@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
 import static by.itstep.goutor.jaavaexam.controller.Main.LOGGER;
 
 public abstract class AbstractDAO implements CRUD {
