@@ -24,6 +24,7 @@ public abstract class AbstractDAO implements CRUD {
         }
     }
 
+
     public AbstractDAO(Connection connection) {
         this.connection = connection;
     }
